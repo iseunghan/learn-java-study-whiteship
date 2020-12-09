@@ -1,6 +1,6 @@
 # learn-java-study-whiteship
 
-![study HALLE](images/study_HALLE.jpg)
+![study HALLE](src/main/java/images/study_HALLE.jpg)
 
 ## 공부 할 주제들
 - [1주차 과제 : JVM은 무엇이며 자바 코드는 어떻게 실행하는 것인가.](https://github.com/iseunghan/learn-java-study-whiteship/blob/main/week1.md)

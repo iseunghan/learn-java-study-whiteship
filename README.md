@@ -4,9 +4,9 @@
 
 ## 공부 할 주제들
 - [1주차 과제 : JVM은 무엇이며 자바 코드는 어떻게 실행하는 것인가.](src/main/java/week1/week1.md)
-- [2주차 과제 : 자바 데이터 타입, 변수 그리고 배열](src/main/java/week1/week2.md)
-- 3주차 과제 : 연산자
-- 4주차 과제 : 제어문
+- [2주차 과제 : 자바 데이터 타입, 변수 그리고 배열](src/main/java/week2/week2.md)
+- [3주차 과제 : 연산자](src/main/java/week3/week3.md)
+- [4주차 과제 : 제어문](src/main/java/week4/week4.md)
 - 5주차 과제 : 클래스
 - 6주차 과제 : 상속
 - 7주차 과제 : 패키지

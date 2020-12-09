@@ -62,18 +62,18 @@ System.out.println(p + q);
 -   **<<**
     -   정수 x의 각 비트를 y만큼 왼쪽으로 이동시킨다. (빈칸은 0으로 채워짐)
 
-![image]("src/main/java/images/bit_operator1.png")
+![image]("images/bit_operator1.png")
 
 -   **\>>**
     -   정수 x의 각 비트를 y만큼 오른쪽으로 이동시킨다. (빈칸은 최상위 부호비트로 채워짐)
 
-![image]("src/main/java/images/bit_operator2.png")
-![image]("src/main/java/images/bit_operator3.png")
+![image]("images/bit_operator2.png")
+![image]("images/bit_operator3.png")
 
 -   **\>>>**
     -   정수 x의 각 비트를 y만큼 오른쪽으로 이동시킨다.( >> 과 같지만, 다른점은 빈칸이 **0**으로 채워짐)
 
-![image]("src/main/java/images/bit_operator4.png")
+![image]("images/bit_operator4.png")
 
 ---
 

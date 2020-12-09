@@ -1,6 +1,4 @@
-package iseunghan;
-
-import iseunghan.LinkedList.ListNode;
+package week4;
 
 public class LinkedList {
     private int size = 0; // 전체적인 사이즈

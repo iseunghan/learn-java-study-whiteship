@@ -3,8 +3,8 @@
 ![study HALLE](src/main/java/images/study_HALLE.jpg)
 
 ## 공부 할 주제들
-- [1주차 과제 : JVM은 무엇이며 자바 코드는 어떻게 실행하는 것인가.](https://github.com/iseunghan/learn-java-study-whiteship/blob/main/week1.md)
-- [2주차 과제 : 자바 데이터 타입, 변수 그리고 배열](https://github.com/iseunghan/learn-java-study-whiteship/blob/main/week2.md)
+- [1주차 과제 : JVM은 무엇이며 자바 코드는 어떻게 실행하는 것인가.](src/main/java/week1/week1.md)
+- [2주차 과제 : 자바 데이터 타입, 변수 그리고 배열](src/main/java/week1/week2.md)
 - 3주차 과제 : 연산자
 - 4주차 과제 : 제어문
 - 5주차 과제 : 클래스

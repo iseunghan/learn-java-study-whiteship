@@ -9,7 +9,7 @@ public class LinkedList {
         private int data; // 현재 노드의 데이터
         private ListNode next; // next 노드
         private int position; // 현재 인덱스
-
+    // add init
         public ListNode(int data) {
             this.data = data;
         }

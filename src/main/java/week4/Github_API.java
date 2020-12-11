@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+// De
+@Deprecated
 public class Github_API {
     static List<Participant> participants = new ArrayList<Participant>();
     public static class App {

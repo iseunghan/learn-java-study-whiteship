@@ -207,6 +207,90 @@ JUnit 테스트에 대해서는 나중에 포스트로 더 자세히 다루겠�
 -   [Github 자바 라이브러리](https://github-api.kohsuke.org/)를 사용하면 편리합니다.
 -   깃헙 API를 익명으로 호출하는데 제한이 있기 때문에 본인의 깃헙 프로젝트에 이슈를 만들고 테스트를 하시면 더 자주 테스트할 수 있습니다.
 
+```
+package week4;
+
+import org.kohsuke.github.GHIssue;
+import org.kohsuke.github.GHIssueComment;
+import org.kohsuke.github.GHRepository;
+
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Main {
+    static List<Participant> participants;
+
+    private static GHRepository init() throws IOException {
+        participants = new ArrayList<>();
+        App app = new App();
+        GHRepository repository = app.getRepository();
+
+        return repository;
+    }
+
+    // list에 해당 유저 이름이 있는지 체크 (return boolean)
+    public static Participant isContains(String username) {
+        for (Participant participant : participants) {
+            if (participant.getUserName().equals(username)) {
+                return participant;
+            }
+        }
+        return null;
+    }
+
+    public static void check_HomeWork(GHRepository repository) throws IOException {
+        for (int i = 1; i <= 18; i++) {
+            GHIssue issue = repository.getIssue(i);
+            List<GHIssueComment> comments = issue.getComments();
+
+            for (GHIssueComment comment : comments) {
+                String userName = comment.getUserName();
+                Participant findUser = isContains(userName);
+                if (findUser != null) { // 만약 list에 해당 유저가 존재한다?
+                    findUser.todayHomeWorkSuccess(i);
+                } else {
+                    Participant p = new Participant(userName);
+                    p.todayHomeWorkSuccess(i);
+                    participants.add(p);
+                }
+            }
+        }
+    }
+
+    public static void print_board() throws IOException {
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        bw.write("| 참여자 | 1주차 | 2주차 | 3주차 | 4주차 | 5주차 | 6주차 | 7주차 | 8주차 | 9주차 | 10주차 | 11주차 | 12주차 | 13주차 | 14주차 | 15주차 | 16주차 | 17주차 | 18주차 | 참석율 |\n");
+        bw.write("| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |\n");
+
+        for (Participant participant : participants) {
+            bw.write("| " + participant.getUserName() + " |");
+            int success = participant.getSuccess();
+            for (int i = 1; i <= 18; i++) {
+                if (participant.is_HW_Done(i)) {
+                    bw.write(" ✅ |");
+                } else {
+                    bw.write(" |");
+                }
+            }
+            double value = (success / (18.0)) * 100;
+            bw.write(" " + (Math.round(value * 100) / 100.0) + "% |\n");
+        }
+        bw.flush();
+        bw.close();
+    }
+
+    public static void main(String[] args) throws IOException {
+        GHRepository repository = init();
+        check_HomeWork(repository); // 과제 했는지 체크!
+        print_board(); // 출력
+    }
+}
+
+```
+
 ---
 
 ## 과제 2. LinkedList를 구현하세요.

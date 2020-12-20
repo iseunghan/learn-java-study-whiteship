@@ -86,8 +86,8 @@ public class Tree {
     public void dfs(Node node) {
 
         if(node != null) {
-            System.out.println(node.value);
             dfs(node.left);
+            System.out.println(node.value);
             dfs(node.right);
         }
     }

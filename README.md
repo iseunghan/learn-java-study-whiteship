@@ -7,7 +7,7 @@
 - [2주차 과제 : 자바 데이터 타입, 변수 그리고 배열](src/main/java/week2/week2.md)
 - [3주차 과제 : 연산자](src/main/java/week3/week3.md)
 - [4주차 과제 : 제어문](src/main/java/week4/week4.md)
-- 5주차 과제 : 클래스
+- [5주차 과제 : 클래스](src/main/java/week5/week5.md)
 - 6주차 과제 : 상속
 - 7주차 과제 : 패키지
 - 8주차 과제 : 인터페이스

@@ -13,58 +13,67 @@ import java.util.Queue;
 public class BinaryTree {
     private Node root;
 
-    public void dfs(Node node) {    // 깊이 우선 탐색
-
+    public void dfs(Node node) {    // 깊이 우선 탐색 = In-order 방식과 동일
+        if (node != null) {
+            dfs(node.getLeft());
+            System.out.print(node.getValue() + " -> ");
+            dfs(node.getRight());
+        }
     }
 
     public void bfs(Node node) {    // 너비 우선 탐색
-        // left, right를 체크할 배열
-        int[] check_bfs = {0, 0};
-
+        // left, right 방문 여부 체크할 배열
+        boolean[] visit = {false, false};
         // bfs는 Queue를 이용한다.
         Queue<Node> queue = new LinkedList<Node>();
-
-        Node searchNode = root;
-
+        Node temp = root;
         // root를 Queue에 넣고 시작
-        queue.add(searchNode);
-        Node tempNode = searchNode;
+        queue.add(temp);
 
-        while (true) {
-            if (check_bfs[0] == 0) {
-                // 왼쪽을 탐색하지 않았다면 왼쪽 탐색
-                tempNode = queue.poll();
+        while (!queue.isEmpty()) {
 
-                if (tempNode == null) {
-                    System.out.println("찾으려는 데이터가 없습니다.");
-                    break;
-                } else if (tempNode.getValue() == node.getValue()) {
-                    System.out.print(tempNode.getValue());
-                    break;
-                } else {
-                    System.out.println(tempNode.getValue() + " -> ");
-                }
-
-                searchNode = tempNode.getLeft();
-                check_bfs[0] = 1;
-
-                if (searchNode != null) {
-                    queue.add(searchNode);
-                }
-            } else if (check_bfs[0] == 1 && check_bfs[1] == 0) {
-                // 오른쪽 탐색 할 차례
-                searchNode = tempNode.getRight();
-                check_bfs[1] = 1;
-
-                if (searchNode != null) {
-                    queue.add(searchNode);
+            if (!visit[0]) {
+                // 왼쪽 방문 할 차례
+                if (temp.getLeft() != null) {
+                    queue.add(temp.getLeft());
+                    visit[0] = true;
                 }else {
-                    // left, right 값 초기화
-                    check_bfs[0] = 0;
-                    check_bfs[1] = 0;
-
+                    System.out.print(queue.poll().getValue() + " -> ");
                 }
+            } else if (!visit[1]) {
+                // 오른쪽 방문 할 차례
+                if (temp.getRight() != null) {
+                    queue.add(temp.getRight());
+                    visit[1] = true;
+                }else {
+                    System.out.print(queue.poll().getValue() + " -> ");
+                }
+            } else {
+                // 둘다 방문 완료
+                visit[0] = false; // 초기화 시켜주기!
+                visit[1] = false;
+                System.out.print(queue.poll().getValue() + " -> "); // 출력 시켜주고,
+                temp = queue.peek(); // temp 교환
             }
+        }
+    }
+
+    public void diff_bfs(Node root) {
+        Queue<Node> qu = new LinkedList<Node>();
+        Node temp = root;
+        qu.add(temp);
+
+        while (!qu.isEmpty()) {
+
+            /* 큐에서 첫번째를 뽑아서 temp에 넣고, 출력을 해준다. */
+            temp = qu.poll();
+            System.out.print(temp.getValue() + " -> ");
+
+            if (temp.getLeft() != null)
+                qu.add(temp.getLeft());
+
+            if (temp.getRight() != null)
+                qu.add(temp.getRight());
         }
     }
 

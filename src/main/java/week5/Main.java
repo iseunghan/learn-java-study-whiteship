@@ -10,6 +10,14 @@ public class Main {
         bt.insertNode(4);
         bt.insertNode(6);
         bt.insertNode(8);
+
+        System.out.println("DFS 탐색입니다.");
         bt.dfs(bt.getRoot());
+        System.out.println();
+        System.out.println("BFS(1) 탐색입니다.");
+        bt.bfs(bt.getRoot());
+        System.out.println();
+        System.out.println("BFS(2) 탐색입니다.");
+        bt.diff_bfs(bt.getRoot());
     }
 }

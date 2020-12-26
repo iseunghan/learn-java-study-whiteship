@@ -247,12 +247,60 @@ public class Inheritance05 {
 
 ---
 
-Dispatch
+**dispatch**
 
--   Static Dispatch
--   Dynamic Dispatch
+-   static dispatch
+-   dynamic dispatch
 
-static
+static은 구현클래스를 이용해 컴파일타임에서부터 어떤 메서드가 호출될지 정해져있는것이고,
+
+dynamic은 인터페이스를 이용해 참조함으로서 호출되는 메서드가 동적으로 정해지는걸 말한다.
+
+_**Static Dispatch**_
+
+자바에서 객체 생성은 런타임시에 호출된다. 즉 컴파일타임에 알수있는건 타입에 대한 정보이다. 타입자체가 Dispatch라는 구현클래스이기때문에 해당 메서드를 호출하면 어떤 메서드가 호출될지 정적으로 정해진다. 이에대한 정보는 컴파일이 종료된 후 바이트코드에도 드러나게된다.
+
+```
+public class Test {
+    public static void main(String[] arg) {
+        Dispatch dispatch = new Dispatch();
+        System.out.println(dispatch.method());
+    }
+}
+
+class Dispatch{
+    public String method(){
+        return "hello dispatch";
+    }
+}
+```
+
+<br>
+
+**_Dynamic Dispatch_**
+
+인터페이스를 타입으로 메서드를 호출한다. 컴파일러는 타입에 대한 정보를 알고있으므로 런타임시에 호출 객체를 확인해 해당 객체의 메서드를 호출한다. 런타임시에 호출 객체를 알 수 있으므로 바이트코드에도 어떤 객체의 메서드를 호출해야하는지 드러나지 않는다.
+
+예제코드에서 method() 메서드는 인자가 없는 메서드이지만 자바는 묵시적으로 항상 호출 객체를 인자로 보내게된다. 호출 객체를 인자로 보내기때문에 this를 이용해 메서드 내부에서 호출객체를 참조할 수 있는 것이다. 또한 이것이 dynamic dispatch의 근거가 되게된다.
+
+```
+public class Test {
+    public static void main(String[] arg) {
+        Dispatchable dispatch = new Dispatch();
+        System.out.println(dispatch.method());
+    }
+}
+
+class Dispatch implements Dispatchable {
+    public String method(){
+        return "hello dispatch";
+    }
+}
+
+interface Dispatchable{
+    String method();
+}
+```
 
 ---
 

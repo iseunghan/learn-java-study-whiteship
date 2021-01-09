@@ -12,7 +12,7 @@
 - [5주차 과제 : 클래스](src/main/java/week5/week5.md)
 - [6주차 과제 : 상속](src/main/java/week6/week6.md)
 - [7주차 과제 : 패키지](src/main/java/week7/week7.md)
-- 8주차 과제 : 인터페이스
+- [8주차 과제 : 인터페이스](src/main/java/week8/week8.md)
 - 9주차 과제 : 예외 처리
 - 10주차 과제 : 멀티쓰레드 프로그래밍
 - 11주차 과제 : Enum
